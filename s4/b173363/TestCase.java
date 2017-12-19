@@ -41,6 +41,37 @@ public class TestCase {
 	    freq = myObject.frequency();
 	    System.out.print("\"H\" in \"Hi Ho Hi Ho\" appears "+freq+" times. ");
 	    if(4 == freq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+
+	}catch(Exception e) {
+	    System.out.println("Exception occurred: STOP");
+	}
+
+	try {
+	    FrequencerInterface  myObject1;
+	    int freq1;
+	    System.out.println("v");
+	    myObject1 = new s4.b173363.Frequencer();
+	    myObject1.setSpace("Hi Ho Hi Ho".getBytes());
+	    //myObject1.setTarget("".getBytes());
+	    freq1 = myObject1.frequency();
+	    System.out.print("\"\" in \"Hi Ho Hi Ho\" appears "+freq1+" times. ");
+	    if(4 == freq1) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+	}catch(Exception e) {
+	    System.out.println("Exception occurred: STOP");
+	}
+
+	try {
+	    FrequencerInterface  myObject2;
+	    int freq2;
+	    System.out.println("j");
+	    myObject2 = new s4.b173363.Frequencer();
+	    myObject2.setSpace("".getBytes());
+	    myObject2.setTarget("H".getBytes());
+	    freq2 = myObject2.frequency();
+	    System.out.print("\"H\" in \"\" appears "+freq2+" times. ");
+	    if(4 == freq2) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+	    System.out.println();
+	    
 	}
 	catch(Exception e) {
 	    System.out.println("Exception occurred: STOP");
@@ -64,6 +95,43 @@ public class TestCase {
 	    myObject.setTarget("00".getBytes());
 	    value = myObject.estimation();
 	    System.out.println(">00 "+value);
+
+	    myObject.setTarget("".getBytes());
+	    value = myObject.estimation();
+	    System.out.println(">  "+value);
+	    System.out.println();
+	}
+	catch(Exception e) {
+	    System.out.println("Exception occurred: STOP");
+	}
+
+	
+		try {
+	    InformationEstimatorInterface myObject1;
+	    double value1;
+	    System.out.println("checking s4.b173363.InformationEstimator");
+	    myObject1 = new s4.b173363.InformationEstimator();
+	    myObject1.setSpace("".getBytes());
+	    myObject1.setTarget("0".getBytes());
+	    value1 = myObject1.estimation();
+	    System.out.println(">0 "+value1);
+	    System.out.println();
+	}
+    	catch(Exception e) {
+    	    System.out.println("Exception occurred: STOP");
+    	}
+	
+
+	try {
+	    InformationEstimatorInterface myObject2;
+	    double value2;
+	    System.out.println("checking s4.b173363.InformationEstimator");
+	    myObject2 = new s4.b173363.InformationEstimator();
+	    myObject2.setSpace("abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz".getBytes());
+	    myObject2.setTarget("s".getBytes());
+	    value2 = myObject2.estimation();
+	    System.out.println(">stu "+value2);
+
 	}
 	catch(Exception e) {
 	    System.out.println("Exception occurred: STOP");
