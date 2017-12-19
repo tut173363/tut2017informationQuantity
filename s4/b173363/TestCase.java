@@ -55,7 +55,7 @@ public class TestCase {
 	    //myObject1.setTarget("".getBytes());
 	    freq1 = myObject1.frequency();
 	    System.out.print("\"\" in \"Hi Ho Hi Ho\" appears "+freq1+" times. ");
-	    if(-1 == freq1) { System.out.println("TARGET is not set or TARGET's length is zero."); } else {System.out.println("WRONG"); }
+	    if(-1 == freq1) { System.out.println("TARGET is not set"); } else {System.out.println("WRONG"); }
 	}catch(Exception e) {
 	    System.out.println("Exception occurred: STOP");
 	}
@@ -69,7 +69,7 @@ public class TestCase {
 	    myObject2.setTarget("".getBytes());
 	    freq2 = myObject2.frequency();
 	    System.out.print("\"\" in \"Hi Ho Hi Ho\" appears "+freq2+" times. ");
-	    if(-1 == freq2) { System.out.println("TARGET is not set or TARGET's length is zero."); } else {System.out.println("WRONG"); }
+	    if(-1 == freq2) { System.out.println("TARGET's length is zero"); } else {System.out.println("WRONG"); }
 	}catch(Exception e) {
 	    System.out.println("Exception occurred: STOP");
 	}
@@ -83,7 +83,7 @@ public class TestCase {
 	    myObject3.setTarget("H".getBytes());
 	    freq3 = myObject3.frequency();
 	    System.out.print("\"H\" in \"\" appears "+freq3+" times. ");
-	    if(0 == freq3) { System.out.println("SPACE is not set or SPACE's length is zero."); } else {System.out.println("WRONG"); }
+	    if(0 == freq3) { System.out.println("SPACE is not set"); } else {System.out.println("WRONG"); }
 	    System.out.println();
 	}
 	catch(Exception e) {
@@ -99,7 +99,7 @@ public class TestCase {
 	    myObject4.setTarget("H".getBytes());
 	    freq4 = myObject4.frequency();
 	    System.out.print("\"H\" in \"\" appears "+freq4+" times. ");
-	    if(0 == freq4) { System.out.println("SPACE is not set or SPACE's length is zero."); } else {System.out.println("WRONG"); }
+	    if(0 == freq4) { System.out.println("SPACE's length is zero"); } else {System.out.println("WRONG"); }
 	}
 	catch(Exception e) {
 	    System.out.println("Exception occurred: STOP");
@@ -138,21 +138,21 @@ public class TestCase {
 	    // myObject.setTarget("".getBytes());
 	    double value1 = myObject1.estimation();
 	    System.out.print(">  "+value1);
-	    if(0.0 == value1) { System.out.println(" the TARGET is not set or TARGET's length is zero"); } else {System.out.println("WRONG"); }
+	    if(0.0 == value1) { System.out.println(" the TARGET is not set"); } else {System.out.println("WRONG"); }
 	    System.out.println();
  	}
 	catch(Exception e) {
 	    System.out.println("Exception occurred: STOP");
 	}
 
-	try {//the TARGET's length is (return 0.0)
+	try {//the TARGET's length is zero(return 0.0)
 	    InformationEstimatorInterface myObject2;
 	    myObject2 = new s4.b173363.InformationEstimator();
 	    myObject2.setSpace("3210321001230123".getBytes());
 	    myObject2.setTarget("".getBytes());
 	    double value2 = myObject2.estimation();
 	    System.out.print(">  "+value2);
-	    if(0.0 == value2) { System.out.println(" the TARGET is not set or TARGET's length is zero"); } else {System.out.println("WRONG"); }
+	    if(0.0 == value2) { System.out.println(" TARGET's length is zero"); } else {System.out.println("WRONG"); }
 	    System.out.println();
     	}
 	catch(Exception e) {
@@ -166,7 +166,7 @@ public class TestCase {
 	    myObject3.setTarget("012".getBytes());
 	    double value3 = myObject3.estimation();
 	    System.out.print(">012 "+value3);
-	    if(Double.MAX_VALUE == value3) { System.out.println(" the true value is infinite, or SPACE is not set"); } else {System.out.println(" WRONG"); }
+	    if(Double.MAX_VALUE == value3) { System.out.println(" the true value is infinite"); } else {System.out.println(" WRONG"); }
 	    System.out.println();
 	}
     	catch(Exception e) {
@@ -180,7 +180,7 @@ public class TestCase {
 	    myObject4.setTarget("012".getBytes());
 	    double value4 = myObject4.estimation();
 	    System.out.print(">012 "+value4);
-	    if(Double.MAX_VALUE == value4) { System.out.println(" the true value is infinite, or SPACE is not set"); } else {System.out.println("WRONG"); }
+	    if(Double.MAX_VALUE == value4) { System.out.println(" SPACE is not set"); } else {System.out.println("WRONG"); }
 	    System.out.println();
 	}
     	catch(Exception e) {
