@@ -71,17 +71,19 @@ public class Frequencer implements FrequencerInterface{
     
     public void setSpace(byte []space) {
 	mySpace = space;
-	if(mySpace.length>0) spaceReady = true;
-	suffixArray = new int[space.length];
-	// put all suffixes in suffixArray. Each suffix is expressed by one interger.
-	for(int i = 0; i< space.length; i++) {
-	    suffixArray[i] = i;
+	if(mySpace != null){
+	    if(mySpace.length>0){
+		spaceReady = true;
+		suffixArray = new int[space.length];
+		// put all suffixes in suffixArray. Each suffix is expressed by one interger.
+		for(int i = 0; i< space.length; i++) {
+		    suffixArray[i] = i;
+		}
+		quickSort(0, space.length-1);
+	    }
 	}
-
-	quickSort(0, space.length-1);
-
 	// Sorting is not implmented yet. /* Example from "Hi Ho Hi Ho"
-	printSuffixArray();
+	//printSuffixArray();
     }
 
 
@@ -101,12 +103,16 @@ public class Frequencer implements FrequencerInterface{
         
         int s1=suffixArray[i];
         int s2=end-j;
+
+	if(mySpace.length == 0) return 0;
         if(s2 > mySpace.length - s1) return -1;
         int n = end-j;
 
         for(int k=0;k<n;k++) {
-            if(mySpace[s1+k]>myTarget[j+k]) return 1;
-            if(mySpace[s1+k]<myTarget[j+k]) return -1;
+	    if(s1+k <= mySpace.length-1){
+		if(mySpace[s1+k]>myTarget[j+k]) return 1;
+		if(mySpace[s1+k]<myTarget[j+k]) return -1;
+	    }else{ return -1; }
         }
         return 0;
     }
@@ -176,12 +182,17 @@ public class Frequencer implements FrequencerInterface{
 	int first = subByteStartIndex(start,end);
 	int last1 = subByteEndIndex(start, end);
 	/* inspection code*/
-	for(int k=start;k<end;k++) { System.out.write(myTarget[k]); } System.out.printf(": first=%d last1=%d\n", first, last1);
+	//for(int k=start;k<end;k++) { System.out.write(myTarget[k]); }
+	//System.out.printf(": first=%d last1=%d\n", first, last1);
  
 	return last1 - first;
     }
     public void setTarget(byte [] target) {
-	myTarget = target; if(myTarget.length>0) targetReady = true; }
+	myTarget = target;
+	if( myTarget != null){
+	    if(myTarget.length>0) targetReady = true;
+	}
+    }
     public int frequency() {
 	if(targetReady == false) return -1; if(spaceReady == false) return 0;
 	return subByteFrequency(0, myTarget.length);
@@ -192,7 +203,9 @@ public class Frequencer implements FrequencerInterface{
     
 	    frequencerObject = new Frequencer();
 	    frequencerObject.setSpace("Hi Ho Hi Ho".getBytes());
+	    //frequencerObject.setSpace(null);
 	    frequencerObject.setTarget("H".getBytes());
+	    //frequencerObject.setTarget(null);
 	    int result = frequencerObject.frequency();
 	    System.out.print("Freq = "+ result+" ");
 	    if(4 == result) { System.out.println("OK"); }
